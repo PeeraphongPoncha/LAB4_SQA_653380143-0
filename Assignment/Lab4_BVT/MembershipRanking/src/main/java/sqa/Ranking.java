@@ -1,4 +1,4 @@
-package sqa.lab1_2.main;
+package sqa;
 
 public class Ranking {
 

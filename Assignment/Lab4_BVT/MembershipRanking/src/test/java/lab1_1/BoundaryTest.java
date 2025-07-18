@@ -1,15 +1,15 @@
-package sqa.lab1_1.test;
+package lab1_1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import sqa.lab1_1.main.Ranking;
+import sqa.Ranking;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoundaryTestRanking {
+public class BoundaryTest {
 	
 	Ranking ranking;
 	
