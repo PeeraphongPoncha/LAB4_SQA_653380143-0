@@ -17,75 +17,30 @@ public class BoundaryTest {
 	void setUp() {
 		ranking = new Ranking();
 	}
-	@DisplayName("Silver Rank Tests")
+	@DisplayName("Rank Tests")
 	@ParameterizedTest(name = "TC{0} => purchaseTotal={1}, frequency={2}, pointCollected={3}, expected={4}")
 	@CsvSource({
-		// Silver
-        "01,10000, 1, 300, Silver",
-        "02,10001, 1, 300, Silver",
-        "03,30000, 1, 300, Silver",
-        "04,49999, 1, 300, Silver",
-        "05,50000, 1, 300, Silver",
-        "06,30000, 2, 300, Silver",
-        "07,30000, 1, 100, Silver",
-        "08,30000, 1, 101, Silver",
-        "09,30000, 1, 499, Silver",
-        "10,30000, 1, 500, Silver",
+	    "01,0,15,500,Standard",
+	    "02,1,15,500,Standard",
+	    "03,50000,15,500,Gold",
+	    "04,99999,15,500,Gold",
+	    "05,100000,15,500,Gold",
+	    "06,50000,0,500,Standard",
+	    "07,50000,1,500,Silver",
+	    "08,50000,30,500,Gold",
+	    "09,50000,31,500,Gold",
+	    "10,50000,15,0,Standard",
+	    "11,50000,15,1,Standard",
+	    "12,50000,15,999,Gold",
+	    "13,50000,15,1000,Gold"
 	})
-	
-	void testSilverMembership(String tcNum, int purchaseTotal, int frequency, int pointCollected, String expected) {
+
+	void testMembership(String tcNum, int purchaseTotal, int frequency, int pointCollected, String expected) {
 		String actual = ranking.CalculateMembershipRank(purchaseTotal, frequency, pointCollected);
 		assertEquals(expected,actual);
 				
 	}
 	
-	@DisplayName("Gold Rank Tests")
-	@ParameterizedTest(name = "TC{0} => purchaseTotal={1}, frequency={2}, pointCollected={3}, expected={4}")
-	@CsvSource({
-        // Gold
-        "11,50000, 4, 750, Gold",
-        "12,50001, 4, 750, Gold",
-        "13,75000, 4, 750, Gold",
-        "14,99999, 4, 750, Gold",
-        "15,100000, 4, 750, Gold",
-        "16,75000, 3, 750, Gold",
-        "17,75000, 5, 750, Gold",
-        "18,75000, 4, 500, Gold",
-        "19,75000, 4, 501, Gold",
-        "20,75000, 4, 999, Gold",
-        "21,75000, 4, 1000, Gold",
-	})
-	
-	void testGoldMembership(String tcNum , int purchaseTotal, int frequency, int pointCollected, String expected) {
-		String actual = ranking.CalculateMembershipRank(purchaseTotal, frequency, pointCollected);
-		assertEquals(expected,actual);
-				
-	}
-	
-	@DisplayName("Platinum Rank Tests")
-	@ParameterizedTest(name = "TC{0} => purchaseTotal={1}, frequency={2}, pointCollected={3}, expected={4}")
-	@CsvSource({
-        // Platinum
-        "22,100001, 8, 5000, Platinum",
-        "23,100002, 8, 5000, Platinum",
-        "24,500000, 8, 5000, Platinum",
-        "25,999999, 8, 5000, Platinum",
-        "26,1000000, 8, 5000, Platinum",
-        "27,500000, 6, 5000, Platinum",
-        "28,500000, 7, 5000, Platinum",
-        "29,500000, 9, 5000, Platinum",
-        "30,500000, 10, 5000, Platinum",
-        "31,500000, 8, 1000, Platinum",
-        "32,500000, 8, 1001, Platinum",
-        "33,500000, 8, 9999, Platinum",
-        "34,500000, 8, 10000, Platinum"
-	})
-	
-	void testPlatinumMembership(String tcNum, int purchaseTotal, int frequency, int pointCollected, String expected) {
-		String actual = ranking.CalculateMembershipRank(purchaseTotal, frequency, pointCollected);
-		assertEquals(expected,actual);
-				
-	}
 
 }
 	
